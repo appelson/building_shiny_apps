@@ -1,0 +1,13 @@
+name: shiny_training
+title: shiny_training
+username: appelson
+account: appelson
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12478634
+bundleId: 9002604
+url: https://appelson.shinyapps.io/shiny_training/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: __pycache__/app.cpython-311.pyc|__pycache__/shiny.cpython-311.pyc|app.py|data.R|easy.R|extremely_simple.R|medium.R|python/.vs/python/xs/UserPrefs.xml|python/python.sln|simple.R|Untitled.R
