@@ -7,9 +7,12 @@ library(plotly) # Gives interactive plots
 # Define UI
 ui <- fluidPage(
   titlePanel("Mount Tremper Donor Analysis"),
-  
+
+  # Adding sidebar
   sidebarLayout(
     sidebarPanel(
+
+      # Adding text
       h3("Filter Data"),
       sliderInput("dateRange",
                   "Select a Donation Year Range:",
@@ -18,6 +21,7 @@ ui <- fluidPage(
                   value = c(min(df$year), max(df$year)),
                   step = 1),
       br(),
+      # Adding text
       h3("Additional Information"),
       p("This website provides an analysis of political donor contributions coming from the Zip Code: 12457. This includes breakdowns by donation category, political party, and recipient location. The data is filtered based on the year range selected."),
       h3("Source"),
@@ -28,21 +32,25 @@ ui <- fluidPage(
     mainPanel(
       tabsetPanel(
         tabPanel("Donation Categories",
+                 # Adding text
                  h3("Donations by Category"),
                  p("There are a number of different types of donations. Understanding what donation types people are engaging in may help narrow down the focus of a donation campaign."),
                  plotlyOutput("categoryPlot"),
         ),
         tabPanel("Party",
+                 # Adding text
                  h3("Donations by Party"),
                  p("It is crucial to understand which parties people are donating too in this region so that we can set up advocacy campaigns to collect more progressive funding."),
                  plotlyOutput("partyPlot"),
         ),
         tabPanel("Location",
+                 # Adding text
                  h3("Total Donations by Location"),
                  p("Where are people in this region donating? Is most of it going back into New York or to Federal campaigns? These are important questions to ask to narrow down our donation metrics even further."),
                  plotlyOutput("locationPlot"),
         ),
         tabPanel("Table",
+                 # Adding text
                  h3("Donation Table"),
                  p("This table provides donation information for individual donors from the 12457 Zip Code."),
                  DTOutput("statsTable")
