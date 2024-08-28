@@ -18,6 +18,7 @@ boxplot_filtering <- function(data){
     select(-Q1, -Q3, -IQR, -lower_bound, -upper_bound)
 }
 
+# Adding plot theme
 custom_theme <- function() {
   theme_minimal() +
     theme(
@@ -36,6 +37,8 @@ custom_theme <- function() {
 ui <- fluidPage(
   tags$head(
     tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"),
+    
+    # Adding CSS
     tags$style(HTML("
       body {
         background-color: #f8f9fa;
