@@ -4,7 +4,7 @@ library(tidyverse) # Allows for data manipulation
 library(janitor) # Allows for data cleaning
 library(plotly) # Gives interactive plots
 
-
+# Adding Plots
 boxplot_filtering <- function(data){
   data %>%
     mutate(
@@ -43,18 +43,24 @@ ui <- fluidPage(
         tabPanel("Donation Categories",
                  h3("Donations by Category"),
                  p("There are a number of different types of donations. Understanding what donation types people are engaging in may help narrow down the focus of a donation campaign."),
+                 
+                 # Adding Plot Select
                  selectInput("categoryselector", "Data Selection", choices = c("Category Count", "Total Funding","Funding Distribution")),
                  plotlyOutput("categoryPlot"),
         ),
         tabPanel("Party",
                  h3("Donations by Party"),
                  p("It is crucial to understand which parties people are donating too in this region so that we can set up advocacy campaigns to collect more progressive funding."),
+                 
+                 # Adding Plot Select
                  selectInput("partyselector", "Data Selection", choices = c("Party Count", "Total Funding","Funding Distribution")),
                  plotlyOutput("partyPlot"),
         ),
         tabPanel("Location",
                  h3("Total Donations by Location"),
                  p("Where are people in this region donating? Is most of it going back into New York or to Federal campaigns? These are important questions to ask to narrow down our donation metrics even further."),
+                 
+                 # Adding Plot Select
                  selectInput("locationselector", "Data Selection", choices = c("Location Count", "Total Funding","Funding Distribution")),
                  plotlyOutput("locationPlot"),
         ),
@@ -97,7 +103,7 @@ server <- function(input, output) {
       )
   })
   
-  # Render plot for Category based on selection
+  # Adding all plots
   output$categoryPlot <- renderPlotly({
     if (input$categoryselector == "Category Count") {
       p <- filtered_data() %>%
@@ -137,8 +143,8 @@ server <- function(input, output) {
       ggplotly(p)
     }
   })
-  
-  # Render plot for Party based on selection
+
+  # Adding all plots
   output$partyPlot <- renderPlotly({
     if (input$partyselector == "Party Count") {
       p <- filtered_data() %>%
@@ -179,7 +185,7 @@ server <- function(input, output) {
     }
   })
   
-  # Render plot for Location based on selection
+# Adding all plots
   output$locationPlot <- renderPlotly({
     if (input$locationselector == "Location Count") {
       p <- filtered_data() %>%
